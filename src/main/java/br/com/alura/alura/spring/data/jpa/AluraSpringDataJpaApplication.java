@@ -34,8 +34,8 @@ public class AluraSpringDataJpaApplication implements CommandLineRunner {
   				1 - Cargo
   				""");
 			int opcao = scanner.nextInt();
+//			scanner.nextLine();
 			// https://stackoverflow.com/questions/26586489/integer-parseintscanner-nextline-vs-scanner-nextint
-			scanner.nextLine();
 
 			if (opcao == 1) {
 				service.inicial(scanner);

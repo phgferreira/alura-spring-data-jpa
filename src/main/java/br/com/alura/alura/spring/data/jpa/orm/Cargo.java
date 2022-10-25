@@ -11,8 +11,24 @@ public class Cargo {
 
     private String descricao;
 
+    public Cargo() {
+    }
+
+    public Cargo(int id, String descricao) {
+        this.id = id;
+        this.descricao = descricao;
+    }
+
     public Cargo(String descricao) {
         this.descricao = descricao;
+    }
+
+    @Override
+    public String toString() {
+        return "Cargo{" +
+                "id=" + id +
+                ", descricao='" + descricao + '\'' +
+                '}';
     }
 
     public Integer getId() {
