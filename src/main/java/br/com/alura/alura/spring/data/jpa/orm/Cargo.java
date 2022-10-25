@@ -11,6 +11,10 @@ public class Cargo {
 
     private String descricao;
 
+    public Cargo(String descricao) {
+        this.descricao = descricao;
+    }
+
     public Integer getId() {
         return id;
     }
