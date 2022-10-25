@@ -2,17 +2,22 @@ package br.com.alura.alura.spring.data.jpa;
 
 import br.com.alura.alura.spring.data.jpa.orm.Cargo;
 import br.com.alura.alura.spring.data.jpa.repository.CargoRepository;
+import br.com.alura.alura.spring.data.jpa.service.CrudCargoService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Scanner;
+
 @SpringBootApplication
 public class AluraSpringDataJpaApplication implements CommandLineRunner {
 
-	private final CargoRepository repository;
+	private Boolean isRunning = true;
 
-	public AluraSpringDataJpaApplication(CargoRepository repository) {
-		this.repository = repository;
+	private final CrudCargoService service;
+
+	public AluraSpringDataJpaApplication(CrudCargoService service) {
+		this.service = service;
 	}
 
 	public static void main(String[] args) {
@@ -21,7 +26,22 @@ public class AluraSpringDataJpaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Cargo cargo = new Cargo("Desenvolvedor de Software");
-		repository.save(cargo);
+		Scanner scanner = new Scanner( System.in );
+		while (isRunning) {
+			System.out.println("""
+  				Qual ação você quer executar?
+  				0 - Sair
+  				1 - Cargo
+  				""");
+			int opcao = scanner.nextInt();
+			// https://stackoverflow.com/questions/26586489/integer-parseintscanner-nextline-vs-scanner-nextint
+			scanner.nextLine();
+
+			if (opcao == 1) {
+				service.inicial(scanner);
+			} else {
+				isRunning = false;
+			}
+		}
 	}
 }
