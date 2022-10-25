@@ -1,10 +1,9 @@
 package br.com.alura.alura.spring.data.jpa.service;
 
-import br.com.alura.alura.spring.data.jpa.orm.Cargo;
+import br.com.alura.alura.spring.data.jpa.model.Cargo;
 import br.com.alura.alura.spring.data.jpa.repository.CargoRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 

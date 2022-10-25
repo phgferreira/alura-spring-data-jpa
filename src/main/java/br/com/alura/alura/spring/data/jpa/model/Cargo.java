@@ -1,6 +1,7 @@
-package br.com.alura.alura.spring.data.jpa.orm;
+package br.com.alura.alura.spring.data.jpa.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="cargos")
@@ -10,6 +11,9 @@ public class Cargo {
     private Integer id;
 
     private String descricao;
+
+    @OneToMany(mappedBy = "cargo")
+    private List<Funcionario> funcionarios;
 
     public Cargo() {
     }
@@ -45,5 +49,13 @@ public class Cargo {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public List<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
+
+    public void setFuncionarios(List<Funcionario> funcionarios) {
+        this.funcionarios = funcionarios;
     }
 }

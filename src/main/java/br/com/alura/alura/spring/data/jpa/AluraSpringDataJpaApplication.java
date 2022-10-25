@@ -1,7 +1,5 @@
 package br.com.alura.alura.spring.data.jpa;
 
-import br.com.alura.alura.spring.data.jpa.orm.Cargo;
-import br.com.alura.alura.spring.data.jpa.repository.CargoRepository;
 import br.com.alura.alura.spring.data.jpa.service.CrudCargoService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

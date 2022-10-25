@@ -1,10 +1,8 @@
 package br.com.alura.alura.spring.data.jpa.repository;
 
-import br.com.alura.alura.spring.data.jpa.orm.Cargo;
+import br.com.alura.alura.spring.data.jpa.model.Cargo;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CargoRepositoryTest {
 
