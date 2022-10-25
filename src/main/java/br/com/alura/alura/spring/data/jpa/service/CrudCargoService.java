@@ -5,6 +5,7 @@ import br.com.alura.alura.spring.data.jpa.repository.CargoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 @Service
@@ -25,6 +26,8 @@ public class CrudCargoService {
                         0 - Sair
                         1 - Salvar
                         2 - Atualizar
+                        3 - Visualizar
+                        4 - Deletar
                         """);
             int opcao = scanner.nextInt();
             scanner.nextLine();
@@ -37,6 +40,12 @@ public class CrudCargoService {
                     break;
                 case 2:
                     atualizar(scanner);
+                    break;
+                case 3:
+                    visualizar();
+                    break;
+                case 4:
+                    deletar(scanner);
                     break;
             }
         }
@@ -63,5 +72,20 @@ public class CrudCargoService {
 
         Cargo cargo = new Cargo(id, novaDescricao);
         repository.save(cargo);
+    }
+
+    private void visualizar() {
+        repository.findAll().forEach(cargo -> System.out.println(cargo));
+    }
+
+    private void deletar(Scanner scanner) {
+        System.out.println("Qual cargo gostaria de deletar?");
+        repository.findAll().forEach(cargo -> System.out.println(cargo));
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        Optional<Cargo> cargo = repository.findById(id);
+        repository.deleteById(id);
+        System.out.printf("%s deletado com sucesso!", cargo);
     }
 }
