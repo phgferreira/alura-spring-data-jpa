@@ -3,6 +3,7 @@ package br.com.alura.alura.spring.data.jpa.repository;
 import br.com.alura.alura.spring.data.jpa.model.Funcionario;
 import br.com.alura.alura.spring.data.jpa.model.FuncionarioProjecao;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
@@ -10,7 +11,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-    public interface FuncionarioRepository extends PagingAndSortingRepository<Funcionario, Integer> {
+    public interface FuncionarioRepository extends PagingAndSortingRepository<Funcionario, Integer>, JpaSpecificationExecutor<Funcionario> {
 
     List<Funcionario> findByNome(String nome, Pageable pageable);
 
