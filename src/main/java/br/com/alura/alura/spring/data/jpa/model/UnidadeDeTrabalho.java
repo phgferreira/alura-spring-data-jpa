@@ -13,7 +13,7 @@ public class UnidadeDeTrabalho {
 
     private String endereco;
 
-    @ManyToMany(mappedBy = "unidadesDeTrabalho")
+    @ManyToMany
     private List<Funcionario> funcionarios;
 
     public UnidadeDeTrabalho() {

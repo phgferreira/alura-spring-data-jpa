@@ -22,11 +22,24 @@ public class Funcionario {
     @ManyToOne
     private Cargo cargo;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "funcionarios", fetch = FetchType.EAGER)
     private List<UnidadeDeTrabalho> unidadesDeTrabalho;
 
     public Funcionario() {
 
+    }
+
+    @Override
+    public String toString() {
+        return "Funcionario{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", salario=" + salario +
+                ", dataContratacao=" + dataContratacao +
+                ", cargo=" + cargo +
+                ", unidadesDeTrabalho=" + unidadesDeTrabalho +
+                '}';
     }
 
     public Integer getId() {
